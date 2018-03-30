@@ -1,0 +1,4 @@
+create database ejemplo;
+use ejemplo;
+create table estadios(id int not null primary key AUTO_INCREMENT, nombre_estadio varchar (40));
+insert into estadios(nombre_estadio) values('Azteca');
