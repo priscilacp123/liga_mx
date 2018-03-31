@@ -24,7 +24,8 @@ public class Reporte extends javax.swing.JFrame {
      */
     
    
-    public Reporte() {
+    public Reporte()
+    {
         initComponents();
     }
 
@@ -88,8 +89,10 @@ public class Reporte extends javax.swing.JFrame {
                 jTextField1.setText("");
                  JOptionPane.showMessageDialog(null, "Estadio insertado correctamente");
             } 
-            catch(Exception e){
-            System.out.println(e);}
+            catch(Exception e)
+            {
+            System.out.println(e);
+            }
             
             
         
