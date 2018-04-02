@@ -33,4 +33,8 @@ public class Conexion
          cnx.close();
       }
    }
+
+    Connection conexion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
