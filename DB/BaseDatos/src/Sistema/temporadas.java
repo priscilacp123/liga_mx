@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,6 +44,9 @@ public class temporadas extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         w = new javax.swing.JTextPane();
         jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +73,15 @@ public class temporadas extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Temporada");
+
+        jButton4.setText("insetar ");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,26 +89,44 @@ public class temporadas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                        .addGap(93, 93, 93)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4))))
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,30 +140,90 @@ public class temporadas extends javax.swing.JFrame {
             conexion=Conexion.obtener();
             PreparedStatement consulta = conexion.prepareStatement("SELECT idtemporada, temporada FROM temporadas");
             ResultSet resultado = consulta.executeQuery();
-
-            while(resultado.next())
+            
+           DefaultTableModel modelo=new DefaultTableModel();
+       
+        modelo.addColumn("idtemporada");
+         modelo.addColumn("temporada");
+            
+         while(resultado.next())
             {
                 String dato=resultado.getString("temporada");
-                System.out.println(dato);
+                System.out.println(dato);z
 
             }
             conexion.close();
-        }
-        
-        catch(SQLException ex)
+//        }
+        jTable2.setModel(modelo);
+        String sql="";
+        if (dato.equals(""))
         {
-            try {
-                throw new SQLException(ex);
-            } 
-            catch (SQLException ex1) 
-            {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+            sql="SELECT * FROM idconexion";
         }
-
+        else{
+            sql="SELECT * FROM idtemporada, temporada WHERE (id='"+dato+"'  OR temporada='"+dato+"')";
+        }  
+        
+        String []datos=new String [2];
+        try{
+            Statement st=cn.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            while(rs.next()){
+            datos[0]=rs.getString(1);
+            datos[1]=rs.getString(2);
+            
+            modelo.addRow(datos);
+            }
+            jTable2.setModel(modelo);
+        }catch(SQLException ex){
+            Logger.getLogger(datos.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }   catch (SQLException ex) {
+            Logger.getLogger(temporadas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(temporadas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//
+//          
+//        
+//        catch(SQLException ex)
+//        {
+//            try {
+//                throw new SQLException(ex);
+//            } 
+//            catch (SQLException ex1) 
+//            {
+//                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Boton de insertar
+
+        Connection conexion;
+
+        try {
+            conexion=Conexion.obtener();
+            PreparedStatement ps = null;
+            String Temporada=jTextField4.getText();
+            //          String Temporada=jTextField4.getText();
+            ps = conexion.prepareStatement("Insert into temporadas (idtemporada) values ('" +Temporada+"')");
+            //            ps = conexion.prepareStatement("Insert into temporadas (idTemporada) values ('" +Temporada+"')");
+            ps.execute();
+            jTextField4.setText("");
+
+            JOptionPane.showMessageDialog(null, "La temporada insertada correctamente");
+        }
+        catch(Exception e)// e es una variable donde arroja los valores
+        {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,9 +260,12 @@ public class temporadas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextPane w;
     // End of variables declaration//GEN-END:variables
 }
