@@ -178,7 +178,7 @@ public class Reporte extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
-        // tabla de Estadios
+        // tabla de Estadios CONSULTA 
         try
         {
             Connection conexion;
