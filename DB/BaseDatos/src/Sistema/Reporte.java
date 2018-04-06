@@ -21,9 +21,11 @@ public class Reporte extends javax.swing.JFrame
         initComponents();
         this.setLocationRelativeTo(null);//para que te centre la interface
         mostrardatos("");
-        // cargarDB();
+       // CargarDB();
         
     }
+   
+    
      void mostrardatos(String valor) throws SQLException, ClassNotFoundException
         {
 //        Conexion cc=new Conexion();
@@ -68,7 +70,7 @@ public class Reporte extends javax.swing.JFrame
 //            Logger.getLogger(estadios.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
-        
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,11 +88,7 @@ public class Reporte extends javax.swing.JFrame
         jTextField2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,28 +174,12 @@ public class Reporte extends javax.swing.JFrame
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
         jButton4.setText("Eliminar último");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("ID");
-
-        jLabel4.setText("nombre_estadio");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,24 +191,12 @@ public class Reporte extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jButton4))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(554, 554, 554)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel3)))))
+                                    .addComponent(jButton4))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
@@ -241,7 +211,7 @@ public class Reporte extends javax.swing.JFrame
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(283, 283, 283)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                                 .addComponent(jButton6))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,67 +238,22 @@ public class Reporte extends javax.swing.JFrame
                 .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(67, 67, 67))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
-        // tabla de Estadios CONSULTA 
-        try
-        {
-            Connection conexion;
-            conexion=Conexion.obtener();
-            
-            
-            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios");
-            ResultSet resultado = consulta.executeQuery();
-            
-            while(resultado.next())
-            { 
-                 String dato=resultado.getString("nombre_estadio");
-               System.out.println(dato);
-               
-                //esto es para mostar id
-               // String dato1=resultado.getString("id");
-               //  jTable1.setValueAt(columnresultado);
-                // jTable1.setModel((TableModel) resultado);
-                 //System.out.print(dato1);
-                
-              // jTable1.setValueAt(resultado);
-              
-            }
-            conexion.close();
-        }
-        catch(SQLException ex)
-        {
-            try {
-                throw new SQLException(ex);
-            } catch (SQLException ex1) {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         //CERRAR VENTANA//
@@ -367,6 +292,7 @@ public class Reporte extends javax.swing.JFrame
         try {
             //buscar
             mostrardatos(jTextField2.getText());
+            
         } catch (SQLException ex)
         {
             Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
@@ -389,14 +315,6 @@ public class Reporte extends javax.swing.JFrame
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //eliminar ultimo
 
@@ -404,14 +322,16 @@ public class Reporte extends javax.swing.JFrame
         try {
             conexion=Conexion.obtener();
             PreparedStatement ps = null;
-           // String id=jTextField3.getText();
-            String nombre_estadio=jTextField4.getText();
-            //ps = conexion.prepareStatement("Delete from estadios where id="+id);
-            PreparedStatement s = conexion.prepareStatement("Delete from estadios where nombre_estadios="+nombre_estadio);
-            s.execute();
-          //  ps.execute();
+           String mostrardatos =jTextField2.getText();
+            //String nombre_estadio=jTextField4.getText();
             
-            CargarBD();
+            ps = conexion.prepareStatement("Delete from estadios where nombre_estadios = "+jTable1);
+            //PreparedStatement s = conexion.prepareStatement("Delete from estadios where nombre_estadios="+nombre_estadio);
+            //s.execute();
+           ps.execute();
+           
+            jButtonActionPerformed();
+           // CargarBD();
 
         } catch (SQLException ex)
         {
@@ -421,6 +341,44 @@ public class Reporte extends javax.swing.JFrame
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
+        // tabla de Estadios CONSULTA
+        try
+        {
+            Connection conexion;
+            conexion=Conexion.obtener();
+
+            PreparedStatement consulta = conexion.prepareStatement("SELECT id, nombre_estadio FROM estadios");
+            ResultSet resultado = consulta.executeQuery();
+
+            while(resultado.next())
+            {
+                String dato=resultado.getString("nombre_estadio");
+                System.out.println(dato);
+
+                //esto es para mostar id
+                // String dato1=resultado.getString("id");
+                //  jTable1.setValueAt(columnresultado);
+                // jTable1.setModel((TableModel) resultado);
+                //System.out.print(dato1);
+
+                // jTable1.setValueAt(resultado);
+
+            }
+            conexion.close();
+        }
+        catch(SQLException ex)
+        {
+            try {
+                throw new SQLException(ex);
+            } catch (SQLException ex1) {
+                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonActionPerformed
 
     public static void main(String args[])
     {
@@ -470,22 +428,24 @@ public class Reporte extends javax.swing.JFrame
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
-    private void CargarBD() {
+    private void jButtonActionPerformed() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
+//
+//    private void CargarDB() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//   
 
 }
