@@ -27,6 +27,7 @@ public class temporadas extends javax.swing.JFrame {
      */
     public temporadas() throws SQLException, ClassNotFoundException
     {
+        this.setLocationRelativeTo(null);//para que te centre la interface
         initComponents();
         mostrardatos("");
     }
@@ -135,6 +136,12 @@ public class temporadas extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
             }
         });
 
@@ -302,6 +309,10 @@ public class temporadas extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
