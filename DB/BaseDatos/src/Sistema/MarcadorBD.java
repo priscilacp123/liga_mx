@@ -7,8 +7,14 @@ package Sistema;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class MarcadorBD {
+    Pool metodospool = new Pool();
     
 }
